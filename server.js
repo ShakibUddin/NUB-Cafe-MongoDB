@@ -2,15 +2,19 @@ require("dotenv").config();
 const express = require("express");
 const path = require('path');
 const mongoose = require('mongoose');
+var cors = require('cors')
 const menuRouter = require("./src/routes/menuRoutes");
+const authRouter = require("./src/routes/authRoutes");
 
 app = express();
 // use the modules
 app.use(express.json());
+//app.use(cors());
 
 app.use('/static', express.static(path.join(__dirname, 'public/images')));
 
 app.use("/menu",menuRouter);
+app.use("/auth",authRouter);
 
 app.get("/", (req, res) => {
     res.send("<h2>Welcome to NUB Cafe</h2>");
