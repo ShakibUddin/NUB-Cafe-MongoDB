@@ -9,7 +9,8 @@ const authRouter = require("./src/routes/authRoutes");
 app = express();
 // use the modules
 app.use(express.json());
-//app.use(cors());
+app.use(cors());
+app.options('*', cors());
 
 app.use('/static', express.static(path.join(__dirname, 'public/images')));
 
