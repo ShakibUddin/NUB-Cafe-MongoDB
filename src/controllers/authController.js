@@ -19,7 +19,7 @@ exports.signup = (req, res) => {
                     "response": `${name} already exists`,
                 });
             }
-            else{
+            else {
                 User.findOne({ email: email }, (error, response) => {
                     console.log(`email response ${response}`);
                     if (response) {
@@ -27,7 +27,7 @@ exports.signup = (req, res) => {
                             "response": `${email} already exists`,
                         });
                     }
-                    else{
+                    else {
                         User.findOne({ mobile: mobile }, (error, response) => {
                             console.log(`mobile response ${response}`);
                             if (response) {
@@ -35,7 +35,7 @@ exports.signup = (req, res) => {
                                     "response": `${mobile} already exists`,
                                 });
                             }
-                            else{
+                            else {
                                 bcrypt.genSalt(10, (err, salt) => {
                                     bcrypt.hash(user.password, salt, (err, hash) => {
                                         if (err) {
@@ -71,25 +71,25 @@ exports.signup = (req, res) => {
 }
 exports.signin = (req, res) => {
     if (req.body !== undefined) {
-        let { email, password} = req.body;
-        User.findOne({ email: email }, (error, response) => {
-            console.log(response);
-            if (response) {
-                bcrypt.compare(password, response.password, function(err, response) {
-                    if (err){
-                      // handle error
-                      console.log(`error: ${error}`);
+        let { email, password } = req.body;
+        User.findOne({ email: email }, (error, userFoundResponse) => {
+            if (userFoundResponse) {
+                bcrypt.compare(password, userFoundResponse.password, function (err, compareResponse) {
+                    if (err) {
+                        // handle error
+                        console.log(`error: ${error}`);
                     }
-                    if (response){
-                      // Send JWT
-                      res.json({"response": true});
+                    if (compareResponse) {
+                        // Send JWT
+                        res.json({ "response": true});
+
                     } else {
-                      // response is OutgoingMessage object that server response http request
-                      res.json({"response": false});
+                        // response is OutgoingMessage object that server response http request
+                        res.json({ "response": false });
                     }
-                  });
+                });
             }
-            else{
+            else {
                 res.json({
                     "response": false
                 });
