@@ -16,6 +16,7 @@ exports.signup = (req, res) => {
             console.log(`name response ${response}`);
             if (response) {
                 res.json({
+                    "message": "false",
                     "response": `${name} already exists`,
                 });
             }
@@ -24,6 +25,7 @@ exports.signup = (req, res) => {
                     console.log(`email response ${response}`);
                     if (response) {
                         res.json({
+                            "message": "false",
                             "response": `${email} already exists`,
                         });
                     }
@@ -32,6 +34,7 @@ exports.signup = (req, res) => {
                             console.log(`mobile response ${response}`);
                             if (response) {
                                 res.json({
+                                    "message": "false",
                                     "response": `${mobile} already exists`,
                                 });
                             }
@@ -49,7 +52,8 @@ exports.signup = (req, res) => {
                                             else {
                                                 console.log(req.body);
                                                 res.json({
-                                                    "response": true,
+                                                    "message": "true",
+                                                    "response": "welcome",
                                                 });
                                             }
                                         });
