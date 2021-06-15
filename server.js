@@ -6,6 +6,7 @@ var cors = require('cors')
 const menuRouter = require("./src/routes/menuRoutes");
 const authRouter = require("./src/routes/authRoutes");
 const profileRouter = require("./src/routes/profileRoutes");
+const orderRouter = require("./src/routes/orderRoutes");
 
 app = express();
 // use the modules
@@ -18,6 +19,7 @@ app.use('/static', express.static(path.join(__dirname, 'public/images')));
 app.use("/menu",menuRouter);
 app.use("/auth",authRouter);
 app.use("/profile",profileRouter);
+app.use("/order",orderRouter);
 
 app.get("/", (req, res) => {
     res.send("<h2>Welcome to NUB Cafe</h2>");
