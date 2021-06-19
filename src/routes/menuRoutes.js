@@ -5,5 +5,6 @@ router.get('/breakfast',menuController.getAllBreakfastItems);
 router.get('/lunch',menuController.getAllLunchItems);
 router.get('/dinner',menuController.getAllDinnerItems);
 router.get('/snack',menuController.getAllSnackItems);
+router.post('/insert',menuController.insertItem);
 
 module.exports = router;

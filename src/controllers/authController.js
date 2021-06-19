@@ -85,7 +85,12 @@ exports.signin = (req, res) => {
                     }
                     if (compareResponse) {
                         // Send JWT
-                        res.json({ "response": true});
+                        if(email === "admin@gmail.com"){
+                            res.json({ "response": true,"status": "ADMIN"});
+                        }
+                        else{
+                            res.json({ "response": true,"status": "MEMBER"});
+                        }
 
                     } else {
                         // response is OutgoingMessage object that server response http request

@@ -2,7 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const path = require('path');
 const mongoose = require('mongoose');
-var cors = require('cors')
+const upload = require('express-fileupload');
+var cors = require('cors');
 const menuRouter = require("./src/routes/menuRoutes");
 const authRouter = require("./src/routes/authRoutes");
 const profileRouter = require("./src/routes/profileRoutes");
@@ -10,6 +11,7 @@ const orderRouter = require("./src/routes/orderRoutes");
 
 app = express();
 // use the modules
+app.use(upload());
 app.use(express.json());
 app.use(cors());
 app.options('*', cors());
