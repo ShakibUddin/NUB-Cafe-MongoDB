@@ -1,11 +1,11 @@
-const Breakfast = require('../models/breakfast');
-const Lunch = require('../models/lunch');
-const Dinner = require('../models/dinner');
-const Snack = require('../models/snack');
+const Rice = require('../models/rice');
+const Curry = require('../models/curry');
+const Drinks = require('../models/drinks');
+const Dissert = require('../models/dissert');
 const mongoose = require('mongoose');
 
-exports.getAllBreakfastItems = (req, res) => {
-    Breakfast.find()
+exports.getAllRiceItems = (req, res) => {
+    Rice.find()
         .then(items => {
             res.json(items);
         })
@@ -14,8 +14,8 @@ exports.getAllBreakfastItems = (req, res) => {
         })
 }
 
-exports.getAllLunchItems = (req, res) => {
-    Lunch.find()
+exports.getAllCurryItems = (req, res) => {
+    Curry.find()
         .then(items => {
             res.json(items);
         })
@@ -24,8 +24,8 @@ exports.getAllLunchItems = (req, res) => {
         })
 }
 
-exports.getAllDinnerItems = (req, res) => {
-    Dinner.find()
+exports.getAllDrinksItems = (req, res) => {
+    Drinks.find()
         .then(items => {
             res.json(items);
         })
@@ -34,8 +34,8 @@ exports.getAllDinnerItems = (req, res) => {
         })
 }
 
-exports.getAllSnackItems = (req, res) => {
-    Snack.find()
+exports.getAllDissertItems = (req, res) => {
+    Dissert.find()
         .then(items => {
             res.json(items);
         })
@@ -89,8 +89,8 @@ exports.insertItem = (req, res) => {
 }
 
 function getModel(category){
-    if (category === "breakfast") return Breakfast;
-    if (category === "lunch") return Lunch;
-    if (category === "dinner") return Dinner;
-    if (category === "snacks") return Snack;
+    if (category === "rice") return Rice;
+    if (category === "curry") return Curry;
+    if (category === "drinks") return Drinks;
+    if (category === "dissert") return Dissert;
 }

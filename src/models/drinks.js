@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const lunchSchema = new Schema({
+const drinksSchema = new Schema({
     name:{
         type:String,
         required:true,
@@ -19,8 +19,8 @@ const lunchSchema = new Schema({
         type:String,
         required:true,
     },
-},{ collection : 'lunch' });
+},{ collection : 'drinks' });
 
-const lunchModel = mongoose.model('lunch',lunchSchema);
+const drinksModel = mongoose.model('drinks',drinksSchema);
 
-module.exports = lunchModel;
+module.exports = drinksModel;

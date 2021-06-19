@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const dinnerSchema = new Schema({
+const dissertschema = new Schema({
     name:{
         type:String,
         required:true,
@@ -19,8 +19,8 @@ const dinnerSchema = new Schema({
         type:String,
         required:true,
     },
-},{ collection : 'dinner' });
+},{ collection : 'disserts' });
 
-const dinnerModel = mongoose.model('dinner',dinnerSchema);
+const dissertModel = mongoose.model('disserts',dissertschema);
 
-module.exports = dinnerModel;
+module.exports = dissertModel;

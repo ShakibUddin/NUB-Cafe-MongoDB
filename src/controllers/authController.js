@@ -13,7 +13,7 @@ exports.signup = (req, res) => {
             orders
         });
         User.findOne({ name: name }, (error, response) => {
-            console.log(`name response ${response}`);
+            //console.log(`name response ${response}`);
             if (response) {
                 res.json({
                     "message": "false",
@@ -22,7 +22,7 @@ exports.signup = (req, res) => {
             }
             else {
                 User.findOne({ email: email }, (error, response) => {
-                    console.log(`email response ${response}`);
+                    //console.log(`email response ${response}`);
                     if (response) {
                         res.json({
                             "message": "false",
@@ -31,7 +31,7 @@ exports.signup = (req, res) => {
                     }
                     else {
                         User.findOne({ mobile: mobile }, (error, response) => {
-                            console.log(`mobile response ${response}`);
+                            //console.log(`mobile response ${response}`);
                             if (response) {
                                 res.json({
                                     "message": "false",
@@ -50,7 +50,7 @@ exports.signup = (req, res) => {
                                                 console.log(error);
                                             }
                                             else {
-                                                console.log(req.body);
+                                                //console.log(req.body);
                                                 res.json({
                                                     "message": "true",
                                                     "response": "welcome",

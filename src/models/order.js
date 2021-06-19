@@ -27,6 +27,18 @@ const orderSchema = new Schema({
         type:String,
         required:true,
     },
+    subTotal:{
+        type:String,
+        required:true,
+    },
+    deliveryCharge:{
+        type:String,
+        required:true,
+    },
+    total:{
+        type:String,
+        required:true,
+    },
 },{ collection : 'orders' });
 
 const orderModel = mongoose.model('orders',orderSchema);

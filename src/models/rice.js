@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const breakfastSchema = new Schema({
+const riceSchema = new Schema({
     name:{
         type:String,
         required:true,
@@ -19,8 +19,8 @@ const breakfastSchema = new Schema({
         type:String,
         required:true,
     },
-},{ collection : 'breakfast' });
+},{ collection : 'rice' });
 
-const breakfastModel = mongoose.model('breakfast',breakfastSchema);
+const riceModel = mongoose.model('rice',riceSchema);
 
-module.exports = breakfastModel;
+module.exports = riceModel;

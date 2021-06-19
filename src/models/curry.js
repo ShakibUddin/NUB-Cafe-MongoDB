@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const snackSchema = new Schema({
+const currySchema = new Schema({
     name:{
         type:String,
         required:true,
@@ -19,8 +19,8 @@ const snackSchema = new Schema({
         type:String,
         required:true,
     },
-},{ collection : 'snack' });
+},{ collection : 'curry' });
 
-const snackModel = mongoose.model('snack',snackSchema);
+const curryModel = mongoose.model('curry',currySchema);
 
-module.exports = snackModel;
+module.exports = curryModel;

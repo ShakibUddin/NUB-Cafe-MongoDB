@@ -2,9 +2,9 @@ const Order = require('../models/order');
 
 exports.placeOrder = (req, res) => {
     if (req.body !== undefined) {
-        let { name, mobile, city, road, house, order } = req.body;
+        let { name, mobile, city, road, house, order, subTotal, deliveryCharge, total } = req.body;
         let userOrder = new Order({
-            name, mobile, city, road, house, "order":JSON.stringify(order)
+            name, mobile, city, road, house, "order":JSON.stringify(order), subTotal, deliveryCharge, total
         });
         userOrder.save((error) => {
             if (error) {
@@ -23,4 +23,14 @@ exports.placeOrder = (req, res) => {
         });
 
     }
+}
+
+exports.getAllOrder = (req, res) => {
+    Order.find()
+        .then(items => {
+            res.json(items);
+        })
+        .catch(e => {
+            console.log(e);
+        })
 }
