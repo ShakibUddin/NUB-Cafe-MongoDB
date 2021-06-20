@@ -34,3 +34,15 @@ exports.getAllOrder = (req, res) => {
             console.log(e);
         })
 }
+
+exports.removeOrder = (req, res) => {
+    Order.findByIdAndRemove({_id: req.params.id})
+        .then(response => {
+            res.json({
+                "response": "true",
+            });
+        })
+        .catch(e => {
+            console.log(e);
+        })
+}
