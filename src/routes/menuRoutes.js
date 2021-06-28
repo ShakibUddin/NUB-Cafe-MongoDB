@@ -6,5 +6,6 @@ router.get('/curry',menuController.getAllCurryItems);
 router.get('/drinks',menuController.getAllDrinksItems);
 router.get('/disserts',menuController.getAllDissertItems);
 router.post('/insert',menuController.insertItem);
+router.post('/delete',menuController.deleteItem);
 
 module.exports = router;

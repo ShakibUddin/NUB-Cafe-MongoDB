@@ -2,6 +2,7 @@ const Rice = require('../models/rice');
 const Curry = require('../models/curry');
 const Drinks = require('../models/drinks');
 const Dissert = require('../models/dissert');
+const fs = require('fs')
 const mongoose = require('mongoose');
 
 exports.getAllRiceItems = (req, res) => {
@@ -88,7 +89,27 @@ exports.insertItem = (req, res) => {
     }
 }
 
-function getModel(category){
+exports.deleteItem = (req, res) => {
+    let ItemModel = getModel(req.body.category);
+    ItemModel.findByIdAndRemove({ _id: req.body.id })
+        .then(response => {
+            fs.unlink("./public/images/"+req.body.imageName, (err) => {
+                if (err) {
+                    console.error(err)
+                    return
+                }
+                //file removed
+            })
+            res.json({
+                "response": "true",
+            });
+        })
+        .catch(e => {
+            console.log(e);
+        })
+}
+
+function getModel(category) {
     if (category === "rice") return Rice;
     if (category === "curry") return Curry;
     if (category === "drinks") return Drinks;

@@ -18,11 +18,7 @@ const userSchema = new Schema({
     mobile:{
         type:String,
         required:true,
-    },
-    orders:{
-        type:Array,
-        required:true,
-    },
+    }
 },{ collection : 'user' });
 
 const userModel = mongoose.model('user',userSchema);

@@ -4,13 +4,11 @@ const bcrypt = require('bcryptjs');
 exports.signup = (req, res) => {
     if (req.body !== undefined) {
         let { name, email, password, mobile } = req.body;
-        let orders = [];
         let user = new User({
             name,
             email,
             password,
-            mobile,
-            orders
+            mobile
         });
         User.findOne({ name: name }, (error, response) => {
             //console.log(`name response ${response}`);
